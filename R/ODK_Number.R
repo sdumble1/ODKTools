@@ -79,8 +79,8 @@ ODK_Number<-function(ODKFile,language="English",maintype="numbers",subtype="numb
   if(subtype=="LETTERS"){
     Q_only$sub<-LETTERS[Q_only$sub]
   }
-  if(maintype=="letters"){
-    Q_only$sub<-LETTERS[Q_only$sub]
+  if(subtype=="letters"){
+    Q_only$sub<-letters[Q_only$sub]
   }
 
   Q_only$QuestNo<-paste(Q_only$NewNum,Q_only$sub,sep=".")
