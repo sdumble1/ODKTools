@@ -20,14 +20,10 @@ ODK_Number("data/select_multiple-count-selected-example.xlsx",language="English"
 This will number sections (denoted by groups or repeat groups) with numbers and subsections with numbers (e.g. 1.1, 1.2 and so on).
 Question groups can also be numbered with LETTERS or letters:
 ``` r
-devtools::install_github("sdumble1/ODKTools")
-library(ODKTools)
 ODK_Number("data/select_multiple-count-selected-example.xlsx",language="English",maintype="LETTERS")
 ```
 
 ``` r
-devtools::install_github("sdumble1/ODKTools")
-library(ODKTools)
 ODK_Number("data/select_multiple-count-selected-example.xlsx",language="English",maintype="letters")
 ```
 
