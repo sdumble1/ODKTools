@@ -53,6 +53,9 @@ trigger_blanks<-function(ODKFile,groups="all",language="English",
 
   form2<-filter(survey,!name%in%addons$name)
   form2$relevant<-as.character(form2$relevant)
+  if(language!=""){form2[,paste0("hint::",language)]<-as.character( form2[,paste0("hint::",language)])}
+  if(language==""){form2[,"hint"]<-as.character( form2[,"hint"])}
+
   ODKFile$survey<-full_join(form2,addons) %>%
     arrange(Sortnum) %>%
     select(-Sortnum)

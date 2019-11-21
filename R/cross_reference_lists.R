@@ -12,7 +12,7 @@
 #' @examples
 #' #Form<-read.odk("data/EvaluationQuestionnaire2018.xlsx")
 #' #Form %>% cross_reference_lists()
-cross_reference_lists<-function(ODKFile,by="label",language="english"){
+cross_reference_lists<-function(ODKFile,by="label",language="English"){
 
   survey<-ODKFile$survey
   choices<-ODKFile$choices
