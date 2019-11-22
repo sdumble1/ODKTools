@@ -20,6 +20,8 @@ write.odk<-function(obj,file){
     file<-paste(file,"xlsx",sep=".")
   }
 
+  class(obj)<-"list"
+
   require(openxlsx)
-  write.xlsx(obj,file)
+  suppressMessages(write.xlsx(obj,file))
 }
