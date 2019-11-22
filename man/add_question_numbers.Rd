@@ -4,8 +4,8 @@
 \alias{add_question_numbers}
 \title{Add question numbers to ODK XLS Form}
 \usage{
-add_question_numbers(ODKFile, language = "English",
-  maintype = "numbers", subtype = "numbers")
+add_question_numbers(ODKFile, language = NULL, maintype = "numbers",
+  subtype = "numbers")
 }
 \arguments{
 \item{ODKFile}{ODK form read in using read.odk}

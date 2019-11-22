@@ -2,9 +2,10 @@
 % Please edit documentation in R/trigger_blanks.R
 \name{trigger_blanks}
 \alias{trigger_blanks}
-\title{Add acknowledgement fields at end of each question group to indicate if any of the questions have been left blank}
+\title{Add acknowledgement fields at end of each question group to indicate if any
+of the questions have been left blank}
 \usage{
-trigger_blanks(ODKFile, groups = "all", language = "English",
+trigger_blanks(ODKFile, groups = "all", language = NULL,
   hinttext = "At least one question within this section has been left blank. Select OK if this has been skipped intentionally; otherwise please check responses")
 }
 \arguments{
@@ -17,7 +18,9 @@ trigger_blanks(ODKFile, groups = "all", language = "English",
 \item{hinttext}{text that will appear in trigger messages}
 }
 \description{
-This is useful if you do not want to force all questions to be required, but still want to make sure that all questions are being addressed and not left blank accidentally
+This is useful if you do not want to force all questions to be required, but
+still want to make sure that all questions are being addressed and not left
+blank accidentally
 }
 \examples{
 #Form<-read.odk("data/EvaluationQuestionnaire2018.xlsx")
