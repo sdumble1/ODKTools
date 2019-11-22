@@ -30,11 +30,13 @@ Can use the options maintype and subtype to give mixed alpha numeric question nu
 
 ``` r
 add_question_numbers(ODKForm) 
+#will give questions 1.1, 1.2, 2.1 and so on
+
 
 #e.g.
 add_question_numbers(ODKForm,maintype="LETTERS",subtype="numbers") 
 
-#will give questions A.1, A.2 and so on
+#will give questions A.1, A.2, B.1 and so on
 ```
 
 Adding triggers for missed inputs:
