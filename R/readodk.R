@@ -30,7 +30,7 @@ read.odk<-function(ODKFile){
   settings<-read.xlsx(ODKFile,"settings")
   }
   else{
-    settings<-NULL
+    settings<-data.frame(language="")
   }
 
 

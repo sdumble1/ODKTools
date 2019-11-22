@@ -12,10 +12,14 @@
 #' @examples
 #' #Form<-read.odk("data/EvaluationQuestionnaire2018.xlsx")
 #' #Form %>% cross_reference_lists()
-cross_reference_lists<-function(ODKFile,by="label",language="English"){
+cross_reference_lists<-function(ODKFile,by="label",language=NULL){
 
   if(class(ODKFile)!="odkxls"){
     stop("Input object an imported XLS form of class odkxls")
+  }
+
+  if(is.null(language)){
+    language<-ODKFile$settings$language
   }
 
   survey<-ODKFile$survey

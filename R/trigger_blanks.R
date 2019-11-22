@@ -1,6 +1,9 @@
-#' Add acknowledgement fields at end of each question group to indicate if any of the questions have been left blank
+#' Add acknowledgement fields at end of each question group to indicate if any
+#' of the questions have been left blank
 #'
-#' This is useful if you do not want to force all questions to be required, but still want to make sure that all questions are being addressed and not left blank accidentally
+#' This is useful if you do not want to force all questions to be required, but
+#' still want to make sure that all questions are being addressed and not left
+#' blank accidentally
 #' @param ODKFile ODK form read in using read.odk
 #' @param language language of hint column to add trigger hint
 #' @param groups add triggers to "all" groups (default) or to user specified list of groups
@@ -14,14 +17,16 @@
 #' #Form %>% trigger_blanks()
 
 
-trigger_blanks<-function(ODKFile,groups="all",language="English",
+trigger_blanks<-function(ODKFile,groups="all",language=NULL,
                          hinttext="At least one question within this section has been left blank. Select OK if this has been skipped intentionally; otherwise please check responses"){
 
 
   if(class(ODKFile)!="odkxls"){
     stop("Input object an imported XLS form of class odkxls")
   }
-
+  if(is.null(language)){
+    language<-ODKFile$settings$language
+  }
   survey<-ODKFile$survey
 
   survey$statement<-ifelse(survey$relevant==""|is.na(survey$relevant),paste0("${",survey$name,"}=''"),

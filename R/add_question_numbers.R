@@ -17,11 +17,16 @@
 #' @examples
 #' #Form<-read.odk("data/EvaluationQuestionnaire2018.xlsx")
 #' #Form %>% add_question_numbers()
-add_question_numbers<-function(ODKFile,language="English",maintype="numbers",subtype="numbers"){
+add_question_numbers<-function(ODKFile,language=NULL,maintype="numbers",subtype="numbers"){
 
-  if(class(ODKFile)!="odkxls"){
+if(class(ODKFile)!="odkxls"){
     stop("Input object an imported XLS form of class odkxls")
   }
+
+  if(is.null(language)){
+    language<-ODKFile$settings$language
+  }
+
 
   Qs<-ODKFile$survey
 
