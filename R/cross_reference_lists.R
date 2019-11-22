@@ -34,11 +34,13 @@ cross_reference_lists<-function(ODKFile,by="label",language="English"){
 
   selects$by<-selects[,by]
 
-  ODKFile$choices<- selects %>%
+  ODKFile$choices<- suppressMessages(selects %>%
     select("list_name","by") %>%
     group_by(list_name) %>%
     summarise(question=paste(by,collapse=";\n")) %>%
-    suppressMessages(right_join(choices))
+    right_join(choices))
+
+
 
   return(ODKFile)
 }
