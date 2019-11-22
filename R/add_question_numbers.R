@@ -107,7 +107,7 @@ if(class(ODKFile)!="odkxls"){
   Qs2[,lab]<-paste(Qs2$QuestNo,Qs2$OldLabel)
   Qs2[,lab][is.na(Qs2$QuestNo)]<-as.character(Qs2$OldLabel)[is.na(Qs2$QuestNo)]
 
-  ODKFile$survey<-Qs2
+  ODKFile$survey<-Qs2[,-1]
 
   return(ODKFile)
 }

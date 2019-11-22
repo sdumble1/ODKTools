@@ -56,7 +56,7 @@ trigger_blanks<-function(ODKFile,groups="all",language=NULL,
                     "note","phonenumber","imei","deviceid")) %>%
     dplyr::summarise(relevant=paste(statement,collapse=" or "),Sortnum=max(Sortnum)+0.5) %>%
     dplyr::mutate(name=paste0(groupname,"_chk"),type="trigger", required="yes",hint=hinttext) %>%
-    select(-groupname,-statement)
+    select(-groupname)
   if(language!=""){colnames(addons)[colnames(addons)=="hint"]<-paste0("hint::",language)}
 
 
@@ -67,7 +67,7 @@ trigger_blanks<-function(ODKFile,groups="all",language=NULL,
 
   ODKFile$survey<-suppressMessages(full_join(form2,addons)) %>%
     arrange(Sortnum) %>%
-    select(-Sortnum)
+    select(-Sortnum,-statement)
 
   return(ODKFile)
 
