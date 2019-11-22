@@ -13,13 +13,16 @@
 #' @param subtype how to label questions within sections. Defaults to
 #'   "numbers". Also can have "LETTERS" or "letters"
 #' @keywords ODK Question Number XLSForm
-#' @importFrom openxlsx read.xlsx
 #' @export
 #' @examples
 #' #Form<-read.odk("data/EvaluationQuestionnaire2018.xlsx")
 #' #Form %>% add_question_numbers()
 add_question_numbers<-function(ODKFile,language="English",maintype="numbers",subtype="numbers"){
-  require(openxlsx)
+
+  if(class(ODKFile)!="odkxls"){
+    stop("Input object an imported XLS form of class odkxls")
+  }
+
   Qs<-ODKFile$survey
 
   hds<-substr(Qs$type,1,3)

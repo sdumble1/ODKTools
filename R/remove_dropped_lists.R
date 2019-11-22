@@ -17,6 +17,10 @@
 #' #Form %>% remove_dropped_lists()
 remove_dropped_lists<-function(ODKFile,verbose=TRUE){
 
+  if(class(ODKFile)!="odkxls"){
+    stop("Input object an imported XLS form of class odkxls")
+  }
+
   survey<-ODKFile$survey
   choices<-ODKFile$choices
 

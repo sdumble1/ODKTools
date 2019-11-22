@@ -11,6 +11,11 @@
 #' #write.odk(Form,"data/EvaluationQuestionnaire2018.xlsx")
 write.odk<-function(obj,file){
 
+
+  if(class(obj)!="odkxls"){
+    stop("Input object an imported XLS form of class odkxls")
+  }
+
   if(substr(file,nchar(file)-3,nchar(file))!="xlsx"){
     file<-paste(file,"xlsx",sep=".")
   }

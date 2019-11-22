@@ -11,9 +11,32 @@
 
 read.odk<-function(ODKFile){
   require(openxlsx)
-  survey<-read.xlsx(ODKFile,"survey")
-  choices<-read.xlsx(ODKFile,"choices")
-  settings<-read.xlsx(ODKFile,"settings")
 
- return(list(survey=survey,choices=choices,settings=settings))
+  if(substr(ODKFile,nchar(ODKFile)-3,nchar(ODKFile))!="xlsx"){
+    stop("File is not saved in Excel (2003 or later) .xlsx format.")
+  }
+
+  SN<-getSheetNames(ODKFile)
+
+  if(any(c("survey","choices")%in%SN)==FALSE){
+    stop("Input file does not contain tabs called 'survey' and 'choices'. Please check input file is a valid XLS Form")
+  }
+
+  survey<-read.xlsx(ODKFile,"survey")
+
+  choices<-read.xlsx(ODKFile,"choices")
+
+  if("settings"%in%SN){
+  settings<-read.xlsx(ODKFile,"settings")
+  }
+  else{
+    settings<-NULL
+  }
+
+
+  out<-list(survey=survey,choices=choices,settings=settings)
+  class(out)<-"odkxls"
+ return(out)
 }
+
+

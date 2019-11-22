@@ -18,6 +18,10 @@ trigger_blanks<-function(ODKFile,groups="all",language="English",
                          hinttext="At least one question within this section has been left blank. Select OK if this has been skipped intentionally; otherwise please check responses"){
 
 
+  if(class(ODKFile)!="odkxls"){
+    stop("Input object an imported XLS form of class odkxls")
+  }
+
   survey<-ODKFile$survey
 
   survey$statement<-ifelse(survey$relevant==""|is.na(survey$relevant),paste0("${",survey$name,"}=''"),
@@ -56,7 +60,7 @@ trigger_blanks<-function(ODKFile,groups="all",language="English",
   if(language!=""){form2[,paste0("hint::",language)]<-as.character( form2[,paste0("hint::",language)])}
   if(language==""){form2[,"hint"]<-as.character( form2[,"hint"])}
 
-  ODKFile$survey<-full_join(form2,addons) %>%
+  ODKFile$survey<-suppressMessages(full_join(form2,addons)) %>%
     arrange(Sortnum) %>%
     select(-Sortnum)
 
