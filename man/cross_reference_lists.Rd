@@ -4,7 +4,7 @@
 \alias{cross_reference_lists}
 \title{cross reference the choices tab with information from the survey tab}
 \usage{
-cross_reference_lists(ODKFile, by = "label", language = "english")
+cross_reference_lists(ODKFile, by = "label", language = "English")
 }
 \arguments{
 \item{ODKFile}{ODK form read in using read.odk}
