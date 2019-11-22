@@ -24,7 +24,7 @@ if(class(ODKFile)!="odkxls"){
   }
 
   if(is.null(language)){
-    language<-ODKFile$settings$language
+    language<-ODKFile$settings$default_language
   }
 
 

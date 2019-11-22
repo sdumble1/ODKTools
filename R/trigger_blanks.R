@@ -25,7 +25,7 @@ trigger_blanks<-function(ODKFile,groups="all",language=NULL,
     stop("Input object an imported XLS form of class odkxls")
   }
   if(is.null(language)){
-    language<-ODKFile$settings$language
+    language<-ODKFile$settings$default_language
   }
   survey<-ODKFile$survey
 
@@ -56,7 +56,7 @@ trigger_blanks<-function(ODKFile,groups="all",language=NULL,
                     "note","phonenumber","imei","deviceid")) %>%
     dplyr::summarise(relevant=paste(statement,collapse=" or "),Sortnum=max(Sortnum)+0.5) %>%
     dplyr::mutate(name=paste0(groupname,"_chk"),type="trigger", required="yes",hint=hinttext) %>%
-    select(-groupname)
+    select(-groupname,-statement)
   if(language!=""){colnames(addons)[colnames(addons)=="hint"]<-paste0("hint::",language)}
 
 

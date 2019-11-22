@@ -19,7 +19,7 @@ cross_reference_lists<-function(ODKFile,by="label",language=NULL){
   }
 
   if(is.null(language)){
-    language<-ODKFile$settings$language
+    language<-ODKFile$settings$default_language
   }
 
   survey<-ODKFile$survey
