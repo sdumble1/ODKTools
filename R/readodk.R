@@ -23,8 +23,10 @@ read.odk<-function(ODKFile){
   }
 
   survey<-read.xlsx(ODKFile,"survey")
+  survey<-subset(survey,is.na(type)==FALSE)
 
   choices<-read.xlsx(ODKFile,"choices")
+  choices<-subset(choices,is.na(list_name)==FALSE)
 
   if("settings"%in%SN){
   settings<-read.xlsx(ODKFile,"settings")
