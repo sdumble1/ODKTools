@@ -8,7 +8,18 @@ The goal of ODKTools is to be able to take common and time consuming ODK form cr
 
 These functions are designed to be used at the end of creating a form - in the tidying, checking and formatting phase of form creation. Please do not use R for creating the ODK form - that doesn't sounds like a very good idea. 
 
+
+## Installing
+
+``` r
+devtools::install_github("sdumble1/ODKTools")
+```
+
+
 ## Examples
+
+
+
 
 Importing:
 
