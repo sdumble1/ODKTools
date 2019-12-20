@@ -50,6 +50,13 @@ add_question_numbers(ODKForm,maintype="LETTERS",subtype="numbers")
 #will give questions A.1, A.2, B.1 and so on
 ```
 
+An interactive shiny to carry out the question numbering has been created for non-R users. This is online here:
+https://shiny.stats4sd.org/odknumber/
+
+The code can be found within the package.
+
+
+
 Adding triggers for missed inputs:
 This is useful if you do not want to force all questions to be required, but still want to make sure that all questions are being addressed and not left blank accidentally
 
