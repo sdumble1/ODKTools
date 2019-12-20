@@ -35,7 +35,7 @@ if(class(ODKFile)!="odkxls"){
   Qs$ID<-1:len
 
   Class<-rep("",len)
-  Class[hds%in%c("int","sel","tex","geo","dec","dat","ima","tim","str")]<-"Question"
+  Class[hds%in%c("int","sel","tex","geo","dec","dat","ima","tim","str","ran")]<-"Question"
   Class[hds%in%c("beg")]<-"Open"
   Class[hds%in%c("end")]<-"Close"
   Class[Qs$type=="end"]<-""
@@ -93,7 +93,7 @@ if(class(ODKFile)!="odkxls"){
   }
 
   Q_only$QuestNo<-paste(Q_only$NewNum,Q_only$sub,sep=".")
-
+colnames(Qs)[colnames(Qs)=="QuestNo"]<-"OldQuestNo"
   Qs2<-merge(Qs,Q_only[,c("ID","QuestNo")],all=T,sort = F)
   Qs2<-Qs2[order(Qs2$ID),]
   if(language!=""){
