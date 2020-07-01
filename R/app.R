@@ -1,7 +1,6 @@
 
 library(shiny)
 #devtools::install_github("sdumble1/ODKTools")
-library(ODKTools)
 library(dplyr)
 
 # Define UI for application that draws a histogram
